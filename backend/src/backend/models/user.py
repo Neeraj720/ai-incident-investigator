@@ -39,5 +39,9 @@ class User(Base):
     )
 
     projects: Mapped[list["Project"]] = relationship(
-    back_populates="owner"
-)
+        back_populates="owner"
+    )
+
+    created_incidents: Mapped[list["Incident"]] = relationship(
+        back_populates="created_by"
+    )

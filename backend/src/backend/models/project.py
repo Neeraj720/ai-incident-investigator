@@ -44,3 +44,7 @@ class Project(Base):
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
+
+    incidents: Mapped[list["Incident"]] = relationship(
+        back_populates="project"
+    )

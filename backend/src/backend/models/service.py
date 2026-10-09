@@ -44,3 +44,7 @@ class Service(Base):
     project: Mapped["Project"] = relationship(
         back_populates="services"
     )
+
+    incidents: Mapped[list["Incident"]] = relationship(
+        back_populates="service"
+    )
