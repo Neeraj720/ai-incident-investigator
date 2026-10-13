@@ -24,6 +24,10 @@ class IncidentEvent(Base):
     source: Mapped[str] = mapped_column(
         String(50), default="manual", nullable=False
     )
+    external_id: Mapped[str | None] = mapped_column(
+        String(150),
+        nullable=True,
+    )
     message: Mapped[str] = mapped_column(Text, nullable=False)
 
     occurred_at: Mapped[datetime] = mapped_column(

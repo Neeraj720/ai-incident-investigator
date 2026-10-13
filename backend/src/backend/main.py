@@ -6,6 +6,7 @@ from backend.core.dependencies import get_db
 from backend.api.v1.auth import router as auth_router
 from backend.api.v1.projects import router as projects_router
 from backend.api.v1.incidents import router as incidents_router
+from backend.api.v1 import integrations 
 
 app = FastAPI(
     title="AI Production Incident Investigator",
@@ -15,6 +16,7 @@ app = FastAPI(
 app.include_router(auth_router)
 app.include_router(projects_router)
 app.include_router(incidents_router)
+app.include_router(integrations.router)
 
 @app.get("/health")
 async def health_check():

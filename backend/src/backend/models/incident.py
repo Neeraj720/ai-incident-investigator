@@ -88,3 +88,12 @@ class Incident(Base):
         passive_deletes=True,
         order_by="IncidentEvent.occurred_at",
     )
+    source: Mapped[str | None] = mapped_column(String(50), nullable=True, index=True)
+    external_id: Mapped[str | None] = mapped_column(
+        String(150),
+        nullable=True,
+    )
+    source_url: Mapped[str | None] = mapped_column(
+        String(500),
+        nullable=True,
+    )
